@@ -14,7 +14,14 @@ class MaxHeap {
 	}
 
 	pop() {
-		--this.CurrentSize;
+		if (this.root != null)
+		{
+			var CurrentDtaInsideRoot = this.root.data;
+			var DetachedRoot = this.detachRoot();
+			this.restoreRootFromLastInsertedNode(DetachedRoot);
+			this.shiftNodeDown(this.root);
+			return CurrentDtaInsideRoot;
+		}
 	}
 
 	detachRoot() {
@@ -31,43 +38,49 @@ class MaxHeap {
 		}
 	}
 
-	restoreRootFromLastInsertedNode(detached) {
-		if (this.CurrentSize > 0)
-		{
-			var LastInsertedNodeIsChildOfDetached = false;
-			this.root = this.parentNodes[this.parentNodes.length - 1];
-			if (detached.left == this.root)
-			{
-				this.root.left = null;
-				LastInsertedNodeIsChildOfDetached = true;
-			}
-			else
-			{
-				this.root.left = detached.left;
-				this.root.left.parent = this.root;				
-			}
-			if (detached.right == this.root)
-			{
-				this.root.right = null;
-				LastInsertedNodeIsChildOfDetached = true;			
-			}
-			else
-			{
-				this.root.right = detached.right;
-				this.root.right.parent = this.root;					
-			}
-			if (LastInsertedNodeIsChildOfDetached && this.CurrentSize > 1)
-			{
-				var BufferForParentNode = this.parentNodes[0];
-				this.parentNodes[0] = this.parentNodes[1];
-				this.parentNodes[1] = BufferForParentNode;
-			}
-			else
-			{
-				this.parentNodes.pop();
-			}
-		}
-	}
+	    restoreRootFromLastInsertedNode(detached) {
+        if (this.CurrentSize > 0) {
+            var LastInsertedNodeIsChildOfDetached = false;
+            this.root = this.parentNodes[this.parentNodes.length - 1];
+            if (detached.left == this.root) {
+                this.root.left = null;
+                LastInsertedNodeIsChildOfDetached = true;
+            }
+            else {
+                this.root.left = detached.left;
+                if (this.root.left != null) {
+                    this.root.left.parent = this.root;
+                }
+            }
+            if (detached.right == this.root) {
+                this.root.right = null;
+                LastInsertedNodeIsChildOfDetached = true;
+            }
+            else {
+                this.root.right = detached.right;
+                if (this.root.right != null) {
+                    this.root.right.parent = this.root;
+                }
+            }
+            if (this.root.parent != null) {
+                if (this.root == this.root.parent.left) {
+                    this.root.parent.left = null;
+                }
+                else if (this.root == this.root.parent.right) {
+                    this.root.parent.right = null;
+                }
+            }
+            this.root.parent = null;
+            if (LastInsertedNodeIsChildOfDetached && this.CurrentSize > 1) {
+                var BufferForParentNode = this.parentNodes[0];
+                this.parentNodes[0] = this.parentNodes[1];
+                this.parentNodes[1] = BufferForParentNode;
+            }
+            else if (this.CurrentSize > 1) {
+                this.parentNodes.pop();
+            }
+        }
+    }
 
 	size() {
 		return this.CurrentSize;
@@ -158,16 +171,28 @@ class MaxHeap {
 	}
 
 	shiftNodeDown(node) {
-		if (this.root.left != null || this.root.right != null)
-		{	
+		if (node != null)
+		{
 			if (node.left != null)
 			{
 				node.left.swapWithParent();
+				var IndexOfFormerRoot = this.parentNodes.indexOf(node);
+				var IndexOfFormerRootNewParent = this.parentNodes.indexOf(node.parent);
+				if (IndexOfFormerRoot >=0 && IndexOfFormerRootNewParent >= 0)
+				{
+					var BufferForNode = this.parentNodes[IndexOfFormerRoot];
+					this.parentNodes[IndexOfFormerRoot] = this.parentNodes[IndexOfFormerRootNewParent];
+					this.parentNodes[IndexOfFormerRootNewParent] = BufferForNode;
+				}
+				else if (IndexOfFormerRootNewParent >= 0)
+				{
+					this.parentNodes[IndexOfFormerRootNewParent] = node;
+				}
 				this.shiftNodeDown(node);
 			}
 			else
 			{
-				var BufferForParent = node.parent;
+				var BufferForParent = node;
 				while (BufferForParent.parent != null)
 				{
 					BufferForParent = BufferForParent.parent;

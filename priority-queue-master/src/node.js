@@ -45,45 +45,45 @@ class Node {
 	}
 
 	swapWithParent() {
-		if(this.parent != null)
-		{
-			var CopyOfLeftChild = this.left;
-			var CopyOfRightChild = this.right;
-			if (this == this.parent.left)
-			{
-				if (this.parent.right != null)
-				{
-					this.parent.right.parent = this;
-				}
-				this.right = this.parent.right;
-				this.left = this.parent;
-			}
-			else
-			{
-				if (this.parent.left != null)
-				{
-					this.parent.left.parent = this;
-				}
-				this.left = this.parent.left;
-				this.right = this.parent;		
-			}
-			this.parent.left = CopyOfLeftChild;
-			this.parent.right = CopyOfRightChild;
-			if (this.parent.parent != null)
-			{
-				if (this.parent == this.parent.parent.left)
-				{
-					this.parent.parent.left = this;
-				}
-				else
-				{
-					this.parent.parent.right = this;
-				}
-			}
-			var CopyOfParentParent = this.parent.parent;
-			this.parent.parent = this;
-			this.parent = CopyOfParentParent;
-		}
+        if (this.parent != null) {
+            var CopyOfLeftChild = this.left;
+            var CopyOfRightChild = this.right;
+            if (this == this.parent.left) {
+                if (this.parent.right != null) {
+                    this.parent.right.parent = this;
+                }
+                this.right = this.parent.right;
+                this.left = this.parent;
+            }
+            else {
+                if (this.parent.left != null) {
+                    this.parent.left.parent = this;
+                }
+                this.left = this.parent.left;
+                this.right = this.parent;
+            }
+            if (CopyOfLeftChild != null)
+            {
+                CopyOfLeftChild.parent = this.parent;
+            }
+            if (CopyOfRightChild != null)
+            {
+                CopyOfRightChild.parent = this.parent;
+            }
+            this.parent.left = CopyOfLeftChild;
+            this.parent.right = CopyOfRightChild;
+            if (this.parent.parent != null) {
+                if (this.parent == this.parent.parent.left) {
+                    this.parent.parent.left = this;
+                }
+                else {
+                    this.parent.parent.right = this;
+                }
+            }
+            var CopyOfParentParent = this.parent.parent;
+            this.parent.parent = this;
+            this.parent = CopyOfParentParent;
+        }
 	}
 }
 
