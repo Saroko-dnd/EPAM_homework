@@ -12,6 +12,7 @@ class PriorityQueue {
 		{
 			this.heap.push(data, priority);
 			++this.CurrentSizeOfQueue;
+
 		}
 		else
 		{
@@ -20,15 +21,31 @@ class PriorityQueue {
 	}
 
 	shift() {
+		if (this.CurrentSizeOfQueue == 0)
+		{
+			throw 'PriorityQueue is empty';
+		}
+		else
+		{
 
+			--this.CurrentSizeOfQueue;
+			return this.heap.pop();
+		}
 	}
 
 	size() {
-
+		return this.CurrentSizeOfQueue;
 	}
 
 	isEmpty() {
-		
+		if (this.CurrentSizeOfQueue == 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
 
