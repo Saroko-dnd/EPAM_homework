@@ -6,6 +6,7 @@
 
 p {
     font-size: 12px;
+    line-height: 14px;
 }
 
 body {
@@ -16,17 +17,37 @@ section {
     position: absolute;
     width: 526px;
     margin: 0 auto;
-    top: 124px;
+    top: 200px;
     left: 0;
     right: 0;
 }
 
 article {
     position: absolute;
-    width: 458px;
-    height: 667px;
+    width: 455px;
+    height: 668px;
     border: 2px solid black;
-    padding: 41px 32px;
+    padding: 39px 32px;
+}
+
+.SectionOfArticle {
+    position: static;
+    width: 100%;
+    margin: 17px 0 0px 0;
+}
+
+.SectionOfArticle::after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+section>header {
+    font-size: 18px;
+    line-height: 17px;
+    margin: 0px 0 7px 0;
 }
 
 header {
@@ -34,34 +55,38 @@ header {
     line-height: 22px;
 }
 
-img:nth-of-type(odd) {
-    margin: 20px 20px 0 0;
+.LeftImage {
+    margin: 0px 21px 15px 0;
     float: left;
 }
 
-img:nth-of-type(even) {
-    margin: 20px 0 0 0;
+.RightImage {
+    margin: 0px 0 0px 0;
     float: right;
 }
 
-p, h1 {
-    margin: 20px 0 0 0;
+.SectionOfArticle:nth-of-type(3) .LeftImage {
+    margin: 14px 0px 0px 0;
 }
 
-.sticker {
+.SectionOfArticle:nth-of-type(3) .RightImage {
+    margin: 14px 0px 0px 0;
+}
+
+footer {
+    font-size: 9px;
+    line-height: 10px;
+    width: 440px;
+    margin: 28px auto 0px;
+    text-align: center;
+}
+
+.bookmark {
     border-radius: 0 10px 10px 0;
     position: absolute;
-    width: 98px;
-    height: 34px;
+    width: 107px;
+    height: 31px;
     border: 2px solid black;
-}
-
-.sticker:nth-of-type(1) {
-    width: 110px;
-    z-index: 7;
-    top: 40px;
-    left: 506px;
-    background-color: #f68e56;
 }
 
 article:nth-of-type(1) {
@@ -71,6 +96,13 @@ article:nth-of-type(1) {
     background-color: #ebebeb;
 }
 
+article:nth-of-type(1) .bookmark {
+    z-index: 7;
+    top: 38px;
+    left: 492px;
+    background-color: #f68e56;
+}
+
 article:nth-of-type(2) {
     top: 0px;
     left: 0px;
@@ -78,11 +110,25 @@ article:nth-of-type(2) {
     background-color: #cccccc;
 }
 
+article:nth-of-type(2) .bookmark {
+    z-index: 5;
+    top: 41px;
+    left: 460px;
+    background-color: #39b54a;
+}
+
 article:nth-of-type(3) {
     top: 20px;
     left: 20px;
     z-index: 2;
     background-color: #acacac;
+}
+
+article:nth-of-type(3) .bookmark {
+    z-index: 3;
+    top: 44px;
+    left: 428px;
+    background-color: #00aeef;
 }
 
 @font-face {
