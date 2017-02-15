@@ -13,6 +13,16 @@ body {
     height: 2000px;
 }
 
+aside {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    border: 1px solid black;
+    background-color: #fbaf5d;
+    width: 87px;
+    height: 69px;
+}
+
 section {
     position: absolute;
     width: 526px;
@@ -133,5 +143,5 @@ article:nth-of-type(3) .bookmark {
 
 @font-face {
     font-family: Myriad Pro;
-    src: url(../fonts/MYRIADPRO-REGULAR.ttf);
+    src: url(../fonts/MYRIADPRO-REGULAR.woff);
 }
