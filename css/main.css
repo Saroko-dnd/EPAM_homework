@@ -70,7 +70,10 @@ article {
 .SectionOfArticle {
     position: static;
     width: 100%;
-    margin: 17px 0 0px 0;
+}
+
+.SectionOfArticle:not(:last-of-type) {
+    margin: 0 0 20px 0;
 }
 
 .SectionOfArticle::after {
@@ -90,6 +93,7 @@ section>header {
 header {
     font-size: 24px;
     line-height: 22px;
+    margin: 0px 0 14px 0;
 }
 
 .LeftImage {
@@ -111,10 +115,11 @@ header {
 }
 
 footer {
+    display: block;
     font-size: 9px;
     line-height: 10px;
     width: 440px;
-    margin: 28px auto 0px;
+    margin: 28px auto 0;
     text-align: center;
 }
 
