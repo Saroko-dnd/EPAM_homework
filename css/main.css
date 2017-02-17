@@ -7,10 +7,15 @@
 p {
     font-size: 12px;
     line-height: 14px;
+    font-weight: 400;
 }
 
 body {
     height: 2000px;
+}
+
+html {
+    font-size: 16px;
 }
 
 aside {
@@ -21,13 +26,6 @@ aside {
     background-color: #fbaf5d;
     width: 88px;
     height: 69px;
-}
-
-aside header {
-    font-size: 16px;
-    line-height: 12px;
-    text-align: center;
-    margin: 10px 0 0 0;
 }
 
 .MenuWithSocialNetworks {
@@ -54,7 +52,7 @@ main {
     position: absolute;
     width: 526px;
     margin: 0 auto;
-    top: 200px;
+    top: 220px;
     left: 0;
     right: 0;
 }
@@ -84,16 +82,29 @@ article {
     visibility: hidden;
 }
 
-section>header {
-    font-size: 18px;
-    line-height: 17px;
+h1,
+h2,
+h3 {
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 1.5rem;
+    line-height: 0.9167;
+    margin: 0px 0 14px 0;
+}
+
+h2 {
+    font-size: 1.125rem;
+    line-height: 0.95;
     margin: 0px 0 7px 0;
 }
 
-header {
-    font-size: 24px;
-    line-height: 22px;
-    margin: 0px 0 14px 0;
+h3 {
+    font-size: 1rem;
+    line-height: 0.75;
+    text-align: center;
+    margin: 9px 0 0 0;
 }
 
 .LeftImage {
@@ -131,15 +142,13 @@ footer {
     border: 2px solid black;
 }
 
-article:nth-of-type(1) {
+article:nth-of-type(3) {
     top: -20px;
     left: -20px;
-    z-index: 6;
     background-color: #ebebeb;
 }
 
-article:nth-of-type(1) .bookmark {
-    z-index: 7;
+article:nth-of-type(3) .bookmark {
     top: 38px;
     left: 492px;
     background-color: #f68e56;
@@ -148,26 +157,22 @@ article:nth-of-type(1) .bookmark {
 article:nth-of-type(2) {
     top: 0px;
     left: 0px;
-    z-index: 4;
     background-color: #cccccc;
 }
 
 article:nth-of-type(2) .bookmark {
-    z-index: 5;
     top: 41px;
     left: 460px;
     background-color: #39b54a;
 }
 
-article:nth-of-type(3) {
+article:nth-of-type(1) {
     top: 20px;
     left: 20px;
-    z-index: 2;
     background-color: #acacac;
 }
 
-article:nth-of-type(3) .bookmark {
-    z-index: 3;
+article:nth-of-type(1) .bookmark {
     top: 44px;
     left: 428px;
     background-color: #00aeef;
@@ -176,4 +181,9 @@ article:nth-of-type(3) .bookmark {
 @font-face {
     font-family: Myriad Pro;
     src: url(../fonts/MYRIADPRO-REGULAR.woff);
+}
+
+
+}
+
 }
