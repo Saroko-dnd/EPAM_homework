@@ -46,15 +46,18 @@ article {
 }
 
 footer {
-    display: block;
     width: 440px;
     margin: 28px auto 0;
-    text-align: center;
 }
 
 footer p {
     font-size: 0.563rem;
     line-height: 1.12;
+}
+
+aside,
+footer {
+    text-align: center;
 }
 
 h1 {
@@ -72,7 +75,6 @@ h2 {
 h3 {
     font-size: 1rem;
     line-height: 0.75;
-    text-align: center;
     margin: 9px 0 0 0;
 }
 
@@ -112,40 +114,36 @@ article:nth-of-type(1) .bookmark {
     background-color: #00aeef;
 }
 
-.ImageGallery img {
+.image-gallery img {
     margin: 14px 0px 0px 0;
 }
 
-.MenuWithSocialNetworks {
+.menu-share {
     margin: 11px 0 0 0;
     height: 22px;
 }
 
-.MenuWithSocialNetworks>li {
+.menu-share>.menu-share-item {
     display: block;
     height: 22px;
     margin: 0 7px 0 0px;
     float: left;
 }
 
-.MenuWithSocialNetworks>li:first-child {
+.menu-share>.menu-share-item:first-child {
     margin: 0 7px 0 4px;
 }
 
-.MenuWithSocialNetworks>li:last-child {
+.menu-share>.menu-share-item:last-child {
     margin: 0 0 0 0;
 }
 
-.SectionOfArticle {
-    position: static;
-    width: 100%;
-}
-
-.SectionOfArticle:not(:last-of-type) {
+.article-content-block {
     margin: 0 0 20px 0;
 }
 
-.SectionOfArticle::after {
+.article-content-block::after,
+.image-gallery::after {
     content: ".";
     clear: both;
     display: block;
@@ -153,12 +151,12 @@ article:nth-of-type(1) .bookmark {
     visibility: hidden;
 }
 
-.LeftImage {
+.image-left {
     margin: 0px 21px 15px 0;
     float: left;
 }
 
-.RightImage {
+.image-right {
     margin: 0px 0 0px 0;
     float: right;
 }
