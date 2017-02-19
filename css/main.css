@@ -142,8 +142,7 @@ article:nth-of-type(1) .bookmark {
     margin: 0 0 20px 0;
 }
 
-.article-content-block::after,
-.image-gallery::after {
+.clearfix::after {
     content: ".";
     clear: both;
     display: block;
